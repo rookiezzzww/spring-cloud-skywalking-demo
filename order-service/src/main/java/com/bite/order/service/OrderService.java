@@ -9,4 +9,6 @@ public interface OrderService {
     Long create(OrderInfo orderInfo);
 
     OrderInfo queryOrderById(Long orderId);
+
+    void slowQueryOrder(Integer time);
 }

@@ -41,4 +41,14 @@ public class OrderController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(order);
     }
+
+    /**
+     * 模拟慢sql
+     */
+    @RequestMapping("/slowQuery")
+    public ResponseEntity<String> slowQueryOrder(Integer time){
+        log.info("slow query, time:{}", time);
+        orderService.slowQueryOrder(time);
+        return ResponseEntity.status(HttpStatus.OK).body("slow query");
+    }
 }

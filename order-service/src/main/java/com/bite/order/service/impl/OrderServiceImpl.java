@@ -41,4 +41,9 @@ public class OrderServiceImpl implements OrderService {
     public OrderInfo queryOrderById(Long orderId) {
         return orderMapper.selectById(orderId);
     }
+
+    @Override
+    public void slowQueryOrder(Integer time) {
+        orderMapper.slowQuery(time);
+    }
 }
