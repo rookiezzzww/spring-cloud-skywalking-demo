@@ -25,4 +25,20 @@ public class OrderController {
         Long orderId = orderService.create(order);
         return ResponseEntity.status(HttpStatus.CREATED).body(orderId);
     }
+
+    /**
+     * 查询订单
+     */
+    @RequestMapping("/query")
+    public ResponseEntity<OrderInfo> queryOrder(Long orderId) throws InterruptedException {
+        log.info("查询订单, orderId:{}", orderId);
+        OrderInfo order = orderService.queryOrderById(orderId);
+        if (orderId%5==0){
+            throw new RuntimeException("模拟异常");
+        }
+        if (orderId==9){
+            Thread.sleep(2000);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(order);
+    }
 }

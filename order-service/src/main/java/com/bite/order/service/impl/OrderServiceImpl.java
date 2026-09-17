@@ -36,4 +36,9 @@ public class OrderServiceImpl implements OrderService {
 
         return orderInfo.getId();
     }
+
+    @Override
+    public OrderInfo queryOrderById(Long orderId) {
+        return orderMapper.selectById(orderId);
+    }
 }

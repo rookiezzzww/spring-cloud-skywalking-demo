@@ -7,4 +7,6 @@ public interface OrderService {
      * 创建订单
      */
     Long create(OrderInfo orderInfo);
+
+    OrderInfo queryOrderById(Long orderId);
 }
