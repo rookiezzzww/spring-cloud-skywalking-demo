@@ -11,6 +11,7 @@
         <module>storage-service</module>
         <module>order-service</module>
         <module>account-service</module>
+        <module>alarm-service</module>
     </modules>
     <packaging>pom</packaging>
 
