@@ -3,3 +3,18 @@ server:
 logging:
   pattern:
     dateformat: HH:mm:ss:SSS
+spring:
+  mail:
+    host: smtp.qq.com
+    username: 2960633784@qq.com
+    password: soqaokvrzqxiddij  # 确认这是授权码
+    port: 587
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+      personal: "SkyWalking告警通知"
