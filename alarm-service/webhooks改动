@@ -1,0 +1,7 @@
+在"E:\bit_tec\SkyWalking-apm\apache-skywalking-apm-bin\config\alarm-settings.yml"最后改动：
+hooks:
+ webhook:
+   default:
+     is-default: true
+     urls:
+       - http://127.0.0.1:8084/alarm/handler
