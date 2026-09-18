@@ -6,6 +6,9 @@ import com.bite.order.entity.OrderInfo;
 import com.bite.order.mapper.OrderMapper;
 import com.bite.order.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.skywalking.apm.toolkit.trace.Tag;
+import org.apache.skywalking.apm.toolkit.trace.Tags;
+import org.apache.skywalking.apm.toolkit.trace.Trace;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +41,9 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    @Trace(operationName = "queryOrderById") //业务链路追踪
+    @Tags({@Tag(key = "orderId", value = "arg[0]"),
+           @Tag(key = "response", value = "returnedObj")})
     public OrderInfo queryOrderById(Long orderId) {
         return orderMapper.selectById(orderId);
     }
